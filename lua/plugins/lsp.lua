@@ -10,8 +10,6 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
-        "pyright",
-        "ruff",
       })
     end,
   },
@@ -23,30 +21,6 @@ return {
       inlay_hints = { enabled = true },
       ---@type lspconfig.options
       servers = {
-        ruff = {
-          cmd_env = { RUFF_TRACE = "messages" },
-          init_options = {
-            settings = {
-              logLevel = "error",
-            },
-          },
-          keys = {
-            {
-              "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
-              desc = "Organize Imports",
-            },
-          },
-        },
-        ruff_lsp = {
-          keys = {
-            {
-              "<leader>co",
-              LazyVim.lsp.action["source.organizeImports"],
-              desc = "Organize Imports",
-            },
-          },
-        },
         cssls = {},
         tailwindcss = {
           root_dir = function(...)
@@ -214,13 +188,6 @@ return {
         },
       },
       setup = {
-        [ruff] = function()
-          LazyVim.lsp.on_attach(function(client, _)
-            -- Disable hover in favor of Pyright
-            print(client)
-            client.server_capabilities.hoverProvider = false
-          end, ruff)
-        end,
         tsserver = function()
           -- disable tsserver
           return true
