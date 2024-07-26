@@ -3,9 +3,17 @@ local opts = { noremap = true, silent = true }
 
 keymap.set("n", "x", '"_x')
 
--- return to Normal Mode
+-- Lazy UI
+keymap.set("n", "TL", ":Lazy<Return>")
+keymap.set("n", "TM", ":Mason<Return>")
+keymap.set("n", "TG", ":MasonLog<Return>")
 
+-- return to Normal Mode
 keymap.set("i", "jk", "<esc>l", { desc = "Return to normal mode" })
+
+-- go to the end of the line
+keymap.set("i", "gf", "<esc>$i<Right>")
+keymap.set("n", "GF", "$i<Right>")
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
@@ -13,6 +21,10 @@ keymap.set("n", "-", "<C-x>")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- move a block of text up or down
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 
 -- Save file and quit
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
