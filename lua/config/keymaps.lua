@@ -12,8 +12,8 @@ keymap.set("n", "TG", ":MasonLog<Return>")
 keymap.set("i", "jk", "<esc>l", { desc = "Return to normal mode" })
 
 -- go to the end of the line
-keymap.set("i", "gf", "<esc>$i<Right>")
-keymap.set("n", "GF", "$i<Right>")
+keymap.set("i", "jf", "<esc>$i<Right>")
+keymap.set("n", "JF", "$i<Right>")
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
@@ -21,6 +21,9 @@ keymap.set("n", "-", "<C-x>")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- Copy
+keymap.set("n", "Y", "y$")
 
 -- move a block of text up or down
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
