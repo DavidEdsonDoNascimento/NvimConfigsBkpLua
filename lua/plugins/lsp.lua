@@ -69,7 +69,7 @@ return {
           },
           keys = {
             {
-              "gD",
+              "gd",
               function()
                 local params = vim.lsp.util.make_position_params()
                 LazyVim.lsp.execute({
@@ -81,7 +81,7 @@ return {
               desc = "Goto Source Definition",
             },
             {
-              "gR",
+              "gr",
               function()
                 LazyVim.lsp.execute({
                   command = "typescript.findAllFileReferences",
@@ -97,7 +97,7 @@ return {
               desc = "Organize Imports",
             },
             {
-              "<leader>cM",
+              "<leader>cm",
               LazyVim.lsp.action["source.addMissingImports.ts"],
               desc = "Add missing imports",
             },

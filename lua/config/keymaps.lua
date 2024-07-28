@@ -22,6 +22,9 @@ keymap.set("n", "-", "<C-x>")
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
+-- New File
+keymap.set("n", "<C-n>", "<cmd>enew<cr>", { desc = "New File" })
+
 -- Copy
 keymap.set("n", "Y", "y$")
 
